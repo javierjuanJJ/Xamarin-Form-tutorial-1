@@ -4,12 +4,10 @@
              xmlns:local="clr-namespace:CourseXamarinFormsOne"
              x:Class="CourseXamarinFormsOne.MainPage"
              Title="Home">
-
     
-    
-    <StackLayout Padding="10,12">
-        <Entry Placeholder="Ingresa aqui tu nombre" x:Name="name"></Entry>
-        <Button Text="Guardar" x:Name="btnSave" Clicked="BtnSave_OnClicked"></Button>
+    <StackLayout>
+        <Entry Text="{Binding name}" x:Name="boxName"></Entry>
+        <Button Clicked="Button_OnClicked"></Button>
     </StackLayout>
-
+    
 </ContentPage>

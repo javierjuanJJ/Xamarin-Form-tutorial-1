@@ -18,15 +18,18 @@ namespace CourseXamarinFormsOne
         protected override void OnAppearing()
         {
             base.OnAppearing();
-           
         }
 
-        private void BtnSave_OnClicked(object sender, EventArgs e)
+        private void Button_OnClicked(object sender, EventArgs e)
         {
-            string nameText = name.Text;
-            if (!string.IsNullOrEmpty(nameText))
+            var boxNameText = boxName.Text;
+            if (!string.IsNullOrEmpty(boxNameText))
             {
-                DisplayAlert("Xamarin forms", nameText, "Aceptar");
+                var userModel = new UserModel()
+                {
+                    Name = boxNameText
+                };
+                Navigation.PushModalAsync(new UserPage(userModel));
             }
         }
     }
