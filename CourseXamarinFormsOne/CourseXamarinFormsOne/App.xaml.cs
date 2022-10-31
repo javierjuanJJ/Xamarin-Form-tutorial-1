@@ -12,7 +12,10 @@ namespace CourseXamarinFormsOne
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MainPage()
+            {
+                Title = "Welcome to my first Xamarin forms app"
+            };
         }
 
         protected override void OnStart()

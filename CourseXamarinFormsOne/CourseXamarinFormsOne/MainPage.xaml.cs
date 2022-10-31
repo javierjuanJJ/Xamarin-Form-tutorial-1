@@ -9,9 +9,23 @@ namespace CourseXamarinFormsOne
 {
     public partial class MainPage : ContentPage
     {
+
+        private int counter;
+        
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            btnSum.Clicked += sumNumber;
+        }
+
+        private void sumNumber(object sender, EventArgs e)
+        {
+            btnSum.Text = counter++.ToString();
         }
     }
 }
