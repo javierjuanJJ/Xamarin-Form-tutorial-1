@@ -7,9 +7,45 @@ using Xamarin.Forms;
 
 namespace CourseXamarinFormsOne
 {
+
+    public class Elemento
+    {
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+    }
+    
+    
+    public class ListaElementos
+    {
+        public List<Elemento> listaElementos { get; set; }
+
+        public ListaElementos()
+        {
+            listaElementos = new List<Elemento>();
+            loadElements();
+        }
+
+        private void loadElements()
+        {
+            listaElementos.Add(new Elemento()
+            {
+                Nombre = "",
+                Descripcion = ""
+            });
+            
+            listaElementos.Add(new Elemento()
+            {
+                Nombre = "",
+                Descripcion = ""
+            });
+        }
+    }
+    
     public partial class MainPage : ContentPage
     {
 
+       
+        
         public MainPage()
         {
             InitializeComponent();
@@ -18,13 +54,17 @@ namespace CourseXamarinFormsOne
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            ListaElementos listaElementos = new ListaElementos();
+            ListaElementos.ItemsSource = listaElementos.listaElementos;
+            ListaElementos.ItemSelected += List_ElemtsOnSelected;
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
+        private async void List_ElemtsOnSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var boxNameText = boxName.Text;
-            if (!string.IsNullOrEmpty(boxNameText))
+            if (e.SelectedItem != null)
             {
+                Elemento eSelectedItem = e.SelectedItem as Elemento;
+                await DisplayAlert("Xamarin", eSelectedItem.Nombre, "Aceptar");
                 
             }
         }
