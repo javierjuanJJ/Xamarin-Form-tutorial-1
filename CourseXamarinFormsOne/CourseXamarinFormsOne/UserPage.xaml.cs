@@ -12,10 +12,16 @@ namespace CourseXamarinFormsOne
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserPage : ContentPage
     {
-        public UserPage(UserModel userModel)
+        public UserPage(Intent intent)
         {
             InitializeComponent();
-            BindingContext = userModel;
+            BindingContext = intent;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
         }
     }
 }

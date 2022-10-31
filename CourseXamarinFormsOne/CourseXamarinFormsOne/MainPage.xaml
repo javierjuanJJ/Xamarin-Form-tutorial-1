@@ -5,7 +5,8 @@
              x:Class="CourseXamarinFormsOne.MainPage"
              Title="Home">
     
-    <StackLayout>
+    <StackLayout Orientation="Horizontal">
+        <Image Source="" WidthRequest="30" Height="30"></Image>
         <Entry Text="{Binding name}" x:Name="boxName"></Entry>
         <Button Clicked="Button_OnClicked"></Button>
     </StackLayout>

@@ -25,11 +25,7 @@ namespace CourseXamarinFormsOne
             var boxNameText = boxName.Text;
             if (!string.IsNullOrEmpty(boxNameText))
             {
-                var userModel = new UserModel()
-                {
-                    Name = boxNameText
-                };
-                Navigation.PushModalAsync(new UserPage(userModel));
+                
             }
         }
     }
